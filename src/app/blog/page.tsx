@@ -4,16 +4,17 @@ import Link from "next/link";
 import { GlowingEffect } from "../../components/ui/glowing-effect";
 import { PrismicText } from "@prismicio/react";
 
+export const revalidate = 300;
+
 export default async function BlogPage() {
   const client = createClient();
   const posts = await client.getAllByType("blog_post", {
-    orderings: {
-      field: "my.blog_post.publication_date",
-      direction: "desc",
-    },
+    orderings: [
+      { field: "my.blog_post.publication_date", direction: "desc" },
+      { field: "document.first_publication_date", direction: "desc" },
+    ],
     lang: "*",
   });
-
   return (
     <section className="relative z-10 py-16 md:py-24 px-6 max-w-7xl mx-auto">
       <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-12 tracking-wide">
