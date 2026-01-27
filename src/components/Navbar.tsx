@@ -20,7 +20,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center space-x-3">
           <span className="text-3xl">🛸</span> {/* UFO emoji as temp logo – replace with SVG/image later */}
           <span className="text-2xl font-bold text-white tracking-tight">
-            Hidden Skies
+            The Occult Observer
           </span>
         </Link>
 
